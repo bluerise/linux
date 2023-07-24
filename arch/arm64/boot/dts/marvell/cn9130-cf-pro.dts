@@ -145,7 +145,6 @@
 	status = "okay";
 };
 
-/* EEPROM */
 &cp0_i2c0 {
 	status = "okay";
 	pinctrl-names = "default";
@@ -232,11 +231,11 @@
 		reg = <0x4c>;
 	};
 
-	/*EEPROM on the SOM */
+	/* EEPROM on the SOM: M24C02-WMN6TP / ST24C02WP */
 	eeprom@53 {
 		compatible = "atmel,24c02";
 		reg = <0x53>;
-		pagesize = <16>;
+		pagesize = <8>;
 	};
 };
 
