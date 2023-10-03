@@ -264,9 +264,10 @@
 	 *  address pins tied low, which takes addresses 0x50 and 0x51.
 	 * Mikrobus doesn't specify beyond an I2C bus being present.
 	 * PCIe uses ARP to assign addresses, or 0x63-0x64.
+	 * M.2 supports irq on mpp33.
 	 */
 	clock-frequency = <100000>;
-	pinctrl-0 = <&cp0_i2c1_pins>;
+	pinctrl-0 = <&cp0_i2c1_pins &cp0_i2c1_m2_pins>;
 	pinctrl-names = "default";
 	status = "okay";
 };
@@ -362,6 +363,11 @@
 		cp0_i2c1_pins: cp0-i2c-pins-1 {
 			marvell,pins = "mpp35", "mpp36";
 			marvell,function = "i2c1";
+		};
+
+		cp0_i2c1_m2_pins: cp0-i2c-m2-pins {
+			marvell,pins = "mpp33";
+			marvell,function = "gpio";
 		};
 
 		cp0_mdio_pins: cp0-mdio-pins {
